@@ -1,3 +1,4 @@
+/* Step 1: logo animation */
 @keyframes logoGrow {
     0% {width: 25px; opacity: 0;}
     100% {width: 475px; opacity: 1; }
@@ -12,27 +13,32 @@
     animation: logoGrow 5s forwards;
 }
 
+/* Step 2: body styling */
 body {
     font-family: Poppins, serif;
     background-color: #f1f1f1;
     background-image: url(../images/concrete_seamless.png);
 }
 
+/* Step 3: arrange header image and nav links vertically */
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Step 4: arrange nav links vertically */
 .nav_links {
     display: flex;
     flex-direction: column;
 }
 
+/* Step 5: check specificity value to override the nav_items' styles set in starter.css */
 .nav_item a, .nav_item a:hover, .nav_itema:focus {
     color: blue;
 }
 
+/* Step 6: style the header of each card */
 .card > header {
     background-color: #288088;
     border: 2px solid #45ADAD;
@@ -41,6 +47,7 @@ header {
     border-top-right-radius: 50px;
 }
 
+/* Step 6: ensure cards' containers borders are also curved */
 div.card{
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -50,6 +57,7 @@ div.card{
     box-sizing: border-box;
 }
 
+/* Step 7, 8: arrange the cards vertically with the same width */
 .pricing {
     display: flex;
     flex-direction: column;
@@ -61,36 +69,42 @@ div.card{
 .card {
     display: flex;
     flex-direction: column;
-    flex: 0 0 450px;
-    width: 450px;
+    flex: 0 0 450px; /* when flex-direction: column, the axis is vertical, flex-basis affects the height of the element */
+    width: 450px; /* to ensure the width is the same*/
 }
 
+/* Step 9: style the gallery images */
 .gallery img{
     border: 10px solid #50C7C7;
     margin: 10px;
     width: 300px;
 }
 
+/* Step 10: arrange the gallery images in a row that wraps to new lines when necessary */ 
 .gallery {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
+/* style for screens larger than 900px */
 @media screen and (min-width:900px){
 
+/* Step 11: arrange the header image and nav links in a row */
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }   
 
+/* Step 11: arrange the nav links in a row and positioned to the end of the row */
 .nav_links {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
 
+/* Step 12: arrange the cards in a row with the same width */
 .pricing {
     display: flex;
     flex-direction: row;
@@ -98,9 +112,10 @@ header {
 }
 
 .card {
-    flex: 0 0 275px;
+    flex: 0 0 275px; /* when flex-direction: row, the axis is horizontal, flex-basis affects the width of the element */
 }
 
+/* Step 13: arrange the nav bar sticking to the top of the screen when scrolling */
 header:not(main header) {
     position: sticky;
     top: 0;
@@ -108,6 +123,7 @@ header:not(main header) {
 
 }
 
+/* Step 13: remove the logo animation when prefers-reduced-motion is selected */
 @media all and (prefers-reduced-motion) {
 
 .logo {
@@ -121,13 +137,16 @@ header:not(main header) {
 
 }
 
+/* style the page print mode */
 @media print {
 
+/* Step 15, 16: style the body font and removes background image */
 body {
     font-family: Arial, Helvetica;
     background-image: none;
 }
 
+/* Step 17: ensure the nav link are spaced out to the entire row */
 nav {
     width: 100%;
 }
@@ -138,6 +157,7 @@ nav {
     justify-content: space-around;
 }
 
+/* Step 18: align the cards along the bottom of the row */
 .pricing {
     display: flex;
     flex-direction: row;
@@ -145,15 +165,18 @@ nav {
     justify-content: space-between;
 }
 
+/* Step 19: style the cards with an initial width of 325px but shrink accrodingly  */
 .card {
     border: 2px solid #45ADDD;
     flex: 0 1 325px;
 }
 
+/* Step 20: make gallery invisible  */
 #gallery, .gallery {
     display: none;
 }
 
+/* Step 21: add 👍 to the end of the second p of the lists  */
 .card ul li:nth-child(2)::after {
     content: '👍' ;
 }
